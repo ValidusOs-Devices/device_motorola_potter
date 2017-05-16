@@ -79,6 +79,9 @@ ro.core_ctl_min_cpu=2
 # Dalvik
 dalvik.vm.heaptargetutilization=0.75
 
+# Device
+ro.product.device=potter
+
 # Display
 debug.egl.hw=1
 debug.enable.sglscale=1
@@ -92,6 +95,17 @@ persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196609
 ro.sf.lcd_density=480
 persist.hwc.enable_vds=1
+
+# Google assistant
+ro.opa.eligible_device=true
+
+# Hardware Info
+ro.device.chipset=Qualcomm Snapdragon 625
+ro.device.cpu=Octa-core (8x2.0 GHz Cortex-A53)
+ro.device.gpu=Adreno 506
+ro.device.rear_cam=12MP
+ro.device.front_cam=5MP
+ro.device.screen_res=1080 x 1920
 
 # HWUI
 ro.hwui.drop_shadow_cache_size=6
