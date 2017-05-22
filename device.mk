@@ -122,9 +122,9 @@ PRODUCT_PACKAGES += \
     memtrack.msm8953 \
     libtinyxml
 
-# Display Calibration
-# PRODUCT_PACKAGES += \
-#    libjni_livedisplay
+Display Calibration
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
 
 # DRM
 PRODUCT_PACKAGES += \
