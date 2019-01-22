@@ -112,8 +112,7 @@ AUDIO_FEATURE_ENABLED_WMA_OFFLOAD := true
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 BOARD_USES_ALSA_AUDIO := true
-BOARD_USES_GENERIC_AUDIO := true
-TARGET_USES_QCOM_MM_AUDIO := true
+USE_XML_AUDIO_POLICY_CONF := 1
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
@@ -222,10 +221,11 @@ VENDOR_SECURITY_PATCH := 2018-09-01
 
 # SELinux
 #include device/qcom/sepolicy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+#BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(BOARD_PATH)/sepolicy/public
 
 # Sensor
-USE_SENSOR_MULTI_HAL := true
 BOARD_USES_MOT_SENSOR_HUB := true
 BOARD_USES_CAP_SENSOR_SX9310 := true
 MOT_SENSOR_HUB_HW_TYPE_L0 := true
@@ -239,12 +239,6 @@ MOT_SENSOR_HUB_FEATURE_PEDO := true
 MOT_SENSOR_HUB_FEATURE_LA := true
 MOT_SENSOR_HUB_FEATURE_GR := true
 
-# Shim
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/bin/adspd|libshim_adsp.so \
-    /system/vendor/lib64/libmdmcutback.so|libqsap_shim.so \
-    /system/lib/libjustshoot.so|libjustshoot_shim.so
-
 # Thermal
 USE_DEVICE_SPECIFIC_THERMAL := true
 
@@ -253,6 +247,16 @@ PRODUCT_USE_VNDK_OVERRIDE := false
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
+
+# Treble
+TARGET_COPY_OUT_VENDOR := vendor
+BOARD_VENDORIMAGE_PARTITION_SIZE := 665845760
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+PRODUCT_VENDOR_MOVE_ENABLED := true
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+# PRODUCT_SHIPPING_API_LEVEL := 24
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+# BOARD_VNDK_VERSION := current
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true

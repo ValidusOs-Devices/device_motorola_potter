@@ -13,7 +13,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <cutils/log.h>
+#include <log/log.h>
 #include <cutils/properties.h>
 #include <inttypes.h>
 #include <unistd.h>
@@ -59,7 +59,7 @@
 #define CS_MAX_LEN 8
 
 /** The firmware blacklist that this flasher will ignore */
-#define STM_FIRMWARE_BLACKLIST "/system/etc/firmware/sensorhub-blacklist.txt"
+#define STM_FIRMWARE_BLACKLIST "/vendor/etc/firmware/sensorhub-blacklist.txt"
 /** Maximum filesystem path length */
 #define STM_MAX_PATH 256
 #define STM_SUCCESS 0
@@ -290,7 +290,7 @@ int stm_getFwFile(char *fileName, FirmwareType type) {
             ret = snprintf(fileName, STM_MAX_PATH, "/data/misc/sensorhub/sensorhubfw.bin");
             break;
         case FW_STOCK:
-            ret = snprintf(fileName, STM_MAX_PATH, "/system/etc/firmware/sensorhubfw.bin");
+            ret = snprintf(fileName, STM_MAX_PATH, "/vendor/etc/firmware/sensorhubfw.bin");
             break;
         default:
             return -1; // Invalid firmware type

@@ -89,6 +89,12 @@ void vendor_load_properties()
     if (platform != ANDROID_TARGET)
         return;
 
+    // camera (treble)
+    property_override("ro.product.manufacturer", "motorola");
+    property_override("ro.build.product", "potter");
+    property_override("ro.product.device", "potter");
+    property_override("ro.product.name", "potter_retail");
+
     // sku
     std::string sku = android::base::GetProperty("ro.boot.hardware.sku", "");
     property_override_dual("ro.product.model", "ro.vendor.product.model", sku.c_str());
@@ -100,8 +106,8 @@ void vendor_load_properties()
     // rmt_storage
     std::string device = android::base::GetProperty("ro.boot.device", "");
     std::string radio = android::base::GetProperty("ro.boot.radio", "");
-    property_set("ro.vendor.hw.device", device.c_str());
-    property_set("ro.vendor.hw.radio", radio.c_str());
+    property_set("ro.vendor.hw.device", "deen");
+    property_set("ro.vendor.hw.radio", "apac");
     property_set("ro.hw.fps", "true");
     property_set("ro.hw.imager", "12MP");
 

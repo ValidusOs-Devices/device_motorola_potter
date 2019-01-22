@@ -40,7 +40,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <cutils/log.h>
+#include <log/log.h>
 
 #ifndef LOG_TAG
 #define LOG_TAG "GPS_UTILS"
